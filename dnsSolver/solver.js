@@ -1,11 +1,22 @@
 const nslookup = require('nslookup')
 const dns = require('dns');
 const moment = require('moment')
+const dnsServers = require('../config/dnsServers')
 
 const ns = async(urlObj, callback) => {
 
-        // array of dns servers used in connection
-    const dns_servers = dns.getServers()
+    let dns_servers = []
+    // array of dns servers used in connection
+    if (dnsServers.useLocal) {
+        dns_servers = dns.getServers()
+    } else {
+        const arraryIPs = []
+        dnsServers.dns.forEach( ip => arraryIPs.push(ip.server) )
+        dns_servers = arraryIPs
+    }
+
+    console.log(dns_servers)
+    
 
     // timeout in milliseconds 
     const timeout = 10

@@ -1,4 +1,4 @@
-const urlObject = require('./jsonFiles/urls.json')
+const urlObject = require('./config/urls.json')
 const fs = require('fs')
 const schedule = require('node-schedule')
 
