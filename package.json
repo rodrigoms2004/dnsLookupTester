@@ -1,0 +1,15 @@
+{
+  "name": "dnsissue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dns-test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.23.0",
+    "nslookup": "^1.1.1"
+  }
+}
