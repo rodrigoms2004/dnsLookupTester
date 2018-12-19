@@ -19,8 +19,10 @@ const ns = async(urlObj, callback) => {
                 nslookup(url.url).server(dns).timeout(timeout * 1000).end((err, addresses) => {
 
                     const resultObj = {
+                        urlTested: url.url,
                         timeStamp : moment().format(),
-                        ipAddresses: addresses
+                        ipAddresses: addresses,
+                        dnsServerUsed : dns
                     }
 
                     callback(resultObj)
