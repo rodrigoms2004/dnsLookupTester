@@ -1,8 +1,6 @@
 const nslookup = require('nslookup')
-const urlObject = require('./urls.json')
 const dns = require('dns');
 const moment = require('moment')
-const fs = require('fs');
 
 const ns = async(urlObj, callback) => {
 
@@ -32,18 +30,6 @@ const ns = async(urlObj, callback) => {
     })  // end Object...forEach    
 }
 
-ns(urlObject, (result) => {
-    fs.stat('./data.json', (err, stats) => {
-        if (stats) {
-            // get info from file
-            const arrayOfResults = require('./data.json')
-            // add new result
-            arrayOfResults.push(result)
-            // write all intel 
-            fs.writeFileSync('./data.json', JSON.stringify(arrayOfResults), 'utf-8')
-        } else {
-            const arrayOneResult = [result]
-            fs.writeFileSync('./data.json', JSON.stringify(arrayOneResult), 'utf-8')
-        }
-    })
-})
+module.exports = {
+    ns
+}
