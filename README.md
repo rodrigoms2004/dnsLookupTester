@@ -6,6 +6,8 @@ December, 20, 2018
 
 ### Objective
 
+List the IP addresses from one or more URLs, using a list to DNS, useful to troubleshooting DNS update issues. 
+
 This script generates a json file with all IP addresses of a given one or more URLs, 
 this file is named 'data.json' and it is placed in 'jsonFiles' folder. You can see a example
 in 'jsonFiles/data_example.json'.
