@@ -1,18 +1,16 @@
-###########################
-Rodrigo Moraes Silveria
-rodrigoms2004@gmail.com
+## DNS lookup tester
 
 No copyright! This code is full copywrong :P
 
-12/20/2018
+December, 20, 2018
 
-###########################
-Objective
+### Objective
 
 This script generates a json file with all IP addresses of a given one or more URLs, 
 this file is named 'data.json' and it is placed in 'jsonFiles' folder. You can see a example
 in 'jsonFiles/data_example.json'.
 
+```
 [
     {
         "urlTested":"xpto.inc",
@@ -35,22 +33,24 @@ in 'jsonFiles/data_example.json'.
         "timeStamp":"2018-12-19T18:12:00-02:00",
         "ipAddresses":["9.8.7.6","1.2.3.4","5.6.7.8"],"dnsServerUsed":"8.8.8.8"}
 ]
+```
 
-###########################
-How to install
 
-1 - Install in your computer NodeJS https://nodejs.org/en/
-2 - Clone this repository using git hub or downloading it into your system
-    git clone https://github.com/rodrigoms2004/dnsLookupTester.git
-3 - Enter the folder and execute 'npm install'
-4 - Run it using 'node app.js'
+### How to install
 
-###########################
-How to use
+* Install in your computer NodeJS https://nodejs.org/en/
+* Clone this repository using git hub or downloading it into your system
+    *git clone https://github.com/rodrigoms2004/dnsLookupTester.git*
+* Enter the folder and execute 'npm install'
+* create a file *jsonFiles/data.json* with an empty array []
+* Run it using 'node app.js'
+
+### How to use
 
 Inside 'config' folder create a file named 'urls.json', use 'urls_example.json' as a model.
 Add all URLs you wanna to test, keep the JSON format to avoid failures.
 
+``` 
 {
     "urls" :
         [
@@ -58,11 +58,13 @@ Add all URLs you wanna to test, keep the JSON format to avoid failures.
             {"url" : "www.yahoo.com"}
         ]
 }
+```
 
 Inside file 'config/dnsServers' you can define if you want to use your local DNS or specific DNS
 servers, for instance, if you want to test URLs listed above using Google DNS Servers 
 8.8.8.8 and 8.8.4.4, put these IPs as below and mark "useLocal" as false:
 
+```
 {
     "dns" :
         [
@@ -71,9 +73,98 @@ servers, for instance, if you want to test URLs listed above using Google DNS Se
         ],
     "useLocal" : false
 }
+```
 
 If "useLocal" is true (default) the DNS servers listed will be ignored and the script will use the
 local machine DNS servers. 
 
-###########################
+### Results
+
+In the file *data.json* :
+
+```
+[
+  {
+    "urlTested": "www.yahoo.com.",
+    "timeStamp": "2019-10-01T09:44:55-03:00",
+    "ipAddresses": [
+      null,
+      "98.138.219.232",
+      "72.30.35.9",
+      "72.30.35.10",
+      "98.138.219.231"
+    ],
+    "dnsServerUsed": "8.8.4.4"
+  },
+  {
+    "urlTested": "www.yahoo.com.",
+    "timeStamp": "2019-10-01T09:44:55-03:00",
+    "ipAddresses": [
+      null,
+      "72.30.35.9",
+      "72.30.35.10"
+    ],
+    "dnsServerUsed": "8.8.8.8"
+  },
+  {
+    "urlTested": "www.google.com",
+    "timeStamp": "2019-10-01T09:44:55-03:00",
+    "ipAddresses": [
+      "172.217.172.196"
+    ],
+    "dnsServerUsed": "8.8.4.4"
+  },
+  {
+    "urlTested": "www.google.com",
+    "timeStamp": "2019-10-01T09:44:55-03:00",
+    "ipAddresses": [
+      "172.217.172.196"
+    ],
+    "dnsServerUsed": "8.8.8.8"
+  },
+  {
+    "urlTested": "www.google.com",
+    "timeStamp": "2019-10-01T09:45:00-03:00",
+    "ipAddresses": [
+      "172.217.172.196"
+    ],
+    "dnsServerUsed": "8.8.8.8"
+  },
+  {
+    "urlTested": "www.yahoo.com.",
+    "timeStamp": "2019-10-01T09:45:00-03:00",
+    "ipAddresses": [
+      null,
+      "98.138.219.232",
+      "72.30.35.10",
+      "98.138.219.231",
+      "72.30.35.9"
+    ],
+    "dnsServerUsed": "8.8.4.4"
+  },
+  {
+    "urlTested": "www.yahoo.com.",
+    "timeStamp": "2019-10-01T09:45:00-03:00",
+    "ipAddresses": [
+      null,
+      "98.138.219.232",
+      "72.30.35.10",
+      "98.138.219.231",
+      "72.30.35.9"
+    ],
+    "dnsServerUsed": "8.8.8.8"
+  },
+  {
+    "urlTested": "www.google.com",
+    "timeStamp": "2019-10-01T09:45:00-03:00",
+    "ipAddresses": [
+      "172.217.172.196"
+    ],
+    "dnsServerUsed": "8.8.4.4"
+  }
+
+]
+```
+
+
 Any doubt, issue or comment please let me know!
